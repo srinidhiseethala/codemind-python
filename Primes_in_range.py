@@ -1,17 +1,17 @@
-def prime(n):
-    if(n==1):
-        return 0
-    else:
-        for i in range(2,int(n**0.5)+1):
-            if n%i==0:
-                return 0
-                break
-    return 1
-a=int(input())
-b=int(input())
-c=0
-for i in range(a,b+1):
-    if(prime(i)==1):
-        c+=1
-print(c)
-    
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+def count_primes_between(m, n):
+    count = 0
+    for num in range(m, n + 1):
+        if is_prime(num):
+            count += 1
+    return count
+m=int(input())
+n=int(input())
+result = count_primes_between(m, n)
+print(result)
